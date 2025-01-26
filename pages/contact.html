@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form with Image</title>
   <style>
-    body {
+    * {
+      padding: 0;
       margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000;
       font-family: Arial, sans-serif;
-      background-color: #f0f8ff;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -16,71 +21,86 @@
     }
 
     .container {
-      background-color: white;
-      width: 400px;
+      display: flex;
+      gap: 20px;
       padding: 20px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      text-align: center;
+      border: 2px solid #ff66b3;
+      border-radius: 8px;
+      background-color: #121212;
     }
 
-    h1 {
+    .form-container {
+      flex: 1;
+    }
+
+    .form-container h1 {
+      color: #ff66b3;
       margin-bottom: 20px;
-      color: #333;
     }
 
-    input, textarea {
-      width: calc(100% - 20px);
-      margin: 10px 0;
+    .form-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-container label {
+      color: #ff66b3;
+    }
+
+    .form-container input, .form-container button {
       padding: 10px;
-      font-size: 14px;
-      border: 1px solid #ccc;
+      border: 1px solid #ff66b3;
       border-radius: 5px;
+      background-color: #000;
+      color: #fff;
     }
 
-    button {
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
+    .form-container button {
+      background-color: #ff66b3;
       cursor: pointer;
-      margin-top: 10px;
+      font-weight: bold;
     }
 
-    button:hover {
-      background-color: #0056b3;
+    .form-container button:hover {
+      background-color: #ff3385;
     }
 
-    img {
+    .image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-container img {
       max-width: 100%;
-      border-radius: 10px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(255, 102, 179, 0.5);
     }
   </style>
 </head>
 <body>
-  <div class="container" id="contact-form">
-    <h1>Contact Us</h1>
-    <form id="form" onsubmit="showThankYouPage(event)">
-      <input type="text" placeholder="Name" required />
-      <input type="email" placeholder="Email" required />
-      <textarea rows="4" placeholder="Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
+  <div class="container">
+    <div class="form-container">
+      <h1>Contact Us</h1>
+      <form action="thankyou.html">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required />
 
-  <div class="container" id="thank-you" style="display: none;">
-    <h1>Thank You!</h1>
-    <img src="thank_you_image.jpg" alt="Thank You Image" />
-  </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
 
-  <script>
-    function showThankYouPage(event) {
-      event.preventDefault();
-      document.getElementById('contact-form').style.display = 'none';
-      document.getElementById('thank-you').style.display = 'block';
-    }
-  </script>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Enter your message" rows="5" required></textarea>
+
+        <button type="submit"  >Submit</button>
+      </form>
+    </div>
+    <div class="image-container">
+      <img src="/img/contactme.jpg" alt="Contact Us" />
+    </div>
+  </div>
 </body>
 </html>
